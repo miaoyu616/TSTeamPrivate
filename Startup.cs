@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace HelloWorld
+namespace TechSmith
 {
     public class Startup
     {
@@ -27,6 +27,12 @@ namespace HelloWorld
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/build";
+            });
+            services.AddControllers().AddJsonOptions(options =>
+            {
+                // Use the default property (Pascal) casing.
+                options.JsonSerializerOptions.PropertyNamingPolicy = null;
+
             });
         }
 
